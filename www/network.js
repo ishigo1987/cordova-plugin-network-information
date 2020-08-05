@@ -53,7 +53,7 @@ var timerId = null;
 var timeout = 500;
 
 channel.createSticky('onCordovaConnectionReady');
-channel.waitForInitialization('onCordovaConnectionReady');
+
 
 channel.onCordovaReady.subscribe(function () {
     me.getInfo(function (info) {
@@ -86,6 +86,7 @@ channel.onCordovaReady.subscribe(function () {
         }
         console.log('Error initializing Network Connection: ' + e);
     });
+    channel.waitForInitialization('onCordovaConnectionReady');
 });
 
 module.exports = me;
